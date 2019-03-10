@@ -24,7 +24,6 @@ fi
 
 if [ -f environment.yml ]; then
     puts-step "Creating environment from environment.yml"
-    pip install -r requirements.txt  --exists-action=w --allow-all-external | indent
     conda env create --file=environment.yaml
 fi
 
