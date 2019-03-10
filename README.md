@@ -3,7 +3,7 @@ Conda Buildpack
 
 This is a [Heroku Buildpack](https://devcenter.heroku.com/articles/buildpacks) for [Conda](http://conda.pydata.org/), the Python distribution for scientific computing by Continuum Analytics.
 
-We use Python 3 with Miniconda3. 
+This buildpack supports Python3.
 
 This buildpack enables the installation of binary packages through the
 open source [conda](http://conda.pydata.org/) application.  Conda is
@@ -49,13 +49,13 @@ Usage
 You can add it to upcoming builds of an existing application:
 
 ```console
-$ heroku buildpacks:set https://github.com/trib3/conda-buildpack.git -a [app-name]
+$ heroku buildpacks:set https://github.com/SterlingButters/conda-buildpack.git -a [app-name]
 ```
 
 
 ## Warning
 
-Heroku limits the final application footprint (slug) size to 300MB. Start small. In case the slug size limit is exceeded, deleting the build cache through the [heroku-repo plugin](https://github.com/heroku/heroku-repo#purge_cache) might help.
+Heroku limits the final application footprint (slug) size to 500MB (as of May 22, 2017). Start small. In case the slug size limit is exceeded, deleting the build cache through the [heroku-repo plugin](https://github.com/heroku/heroku-repo#purge_cache) might help.
 
 ## Tip
 This buildpack will result in a large slug size upon first deployment to heroku app (~300MB). Resulting builds will be much smaller (~100MB). One solution to the slug size problem is adding a large (even if it's critical) directory in .slugignore, pushing the app to heroku, then removing the directory from git ignore, then pushing again. 
