@@ -20,6 +20,29 @@ Like when using the standard buildpack for python from Heroku, you can also
 still supply a `requirements.txt` file for [pip](https://github.com/pypa/pip)
 to process.  In this way, you can install binary packages via conda for
 everything you can and still use pip for anything you can't.
+Alternatively, you may supply an `environment.yml` file to consolidate `conda` 
+and `pip` dependencies into a single file AND specify the addition of 
+condo channels:
+
+`environment.yml`:
+
+```yml
+name: openmc-dash-interface
+channels:
+    - conda-forge
+dependencies:
+- python=3.6
+- anaconda
+- pip
+- pip:
+  - dash
+  - numpy
+  - pandas
+  - gunicorn
+```
+
+
+
 Usage
 -----
 
