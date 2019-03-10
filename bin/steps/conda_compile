@@ -10,7 +10,7 @@ fi
 echo "nomkl" > $HOME/.heroku/miniconda/conda-meta/pinned
 echo "added pinned file in $HOME/.heroku/miniconda/conda-meta/pinned"
 conda install nomkl
-conda config --add channels conda-forge 
+# conda config --add channels conda-forge 
 
 
 if [ -f conda-requirements.txt ]; then
@@ -23,10 +23,10 @@ if [ -f requirements.txt ]; then
     pip install -r requirements.txt  --exists-action=w | indent
 fi
 
-# if [ -f environment.yml ]; then
-#     puts-step "Creating environment from environment.yml"
-#     conda env create -f environment.yml
-# fi
+if [ -f environment.yml ]; then
+    puts-step "Creating environment from environment.yml"
+    conda env create -f environment.yml
+fi
 
 # Clean up the installation environment .
 conda clean -pt --yes > /dev/null
