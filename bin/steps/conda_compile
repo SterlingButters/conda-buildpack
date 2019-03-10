@@ -24,7 +24,7 @@ fi
 
 if [ -f environment.yml ]; then
     puts-step "Creating environment from environment.yml"
-    conda env create --file=environment.yaml
+    conda env create -f environment.yaml
 fi
 
 # Clean up the installation environment .
