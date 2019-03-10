@@ -55,7 +55,7 @@ $ heroku buildpacks:set https://github.com/SterlingButters/conda-buildpack.git -
 
 ## Warning
 
-Heroku limits the final application footprint (slug) size to 500MB (as of May 22, 2017). Start small. In case the slug size limit is exceeded, deleting the build cache through the [heroku-repo plugin](https://github.com/heroku/heroku-repo#purge_cache) might help.
+Heroku limits the final application footprint (slug) size to 500MB (as of May 22, 2017). Start small. In case the slug size limit is exceeded, deleting the build cache through the [heroku-repo plugin](https://github.com/heroku/heroku-repo#purge_cache) might help. The environment created by `environment.yml` is exceptionally large thus you will need to find a way to limit the environment.
 
 ## Tip
 This buildpack will result in a large slug size upon first deployment to heroku app (~300MB). Resulting builds will be much smaller (~100MB). One solution to the slug size problem is adding a large (even if it's critical) directory in .slugignore, pushing the app to heroku, then removing the directory from git ignore, then pushing again. 
