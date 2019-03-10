@@ -11,7 +11,6 @@ echo "nomkl" > $HOME/.heroku/miniconda/conda-meta/pinned
 echo "added pinned file in $HOME/.heroku/miniconda/conda-meta/pinned"
 conda install nomkl
 conda config --add channels conda-forge 
-apt update && apt install libgl1-mesa-glx
 
 
 if [ -f conda-requirements.txt ]; then
